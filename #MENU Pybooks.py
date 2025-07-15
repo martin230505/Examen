@@ -30,14 +30,14 @@ def mostrar_todo():
 
 #funcion q debe entragar el stock de una marca
 def stock_marca():
-    marca=input('marca a buscar:').lower()
+    marca= input('marca a buscar:').lower()
     encontrados = False
     for modelo, datos in productos.items():
         if datos[0].lower() == marca:
             print(f"{modelo}: {datos}")
             encontrados = True
-        if not encontrados :
-            print('no hay productos de esa marca.')
+    if not encontrados :
+        print(' no hay productos de esa marca.')
 
    
 #funcion que busque por RAM y Precio / que reciba la ram minima, y la ram minima , el precio como parametro y no debe retornar nada 
@@ -46,7 +46,7 @@ def stock_marca():
 def busqueda_ram_precio(ram_min, ram_max, precio_max):
     encontrados= False
     for modelo, datos in productos.items():
-        ram_num=int(datos[2].remplace("GB", ""))
+        ram_num=int(datos[2].replace("GB", ""))
         if ram_min <= ram_num <= ram_max and datos[5] <= precio_max:
             print(f'{modelo}:{datos}')
             encontrados = True
@@ -103,7 +103,6 @@ def menu():
                 except:
                     print("valores invalidos. intenta otra vez.")
 
-                busqueda_ram_precio()
             elif opc =='3':
                 eliminar_producto()
             elif opc == '4':
